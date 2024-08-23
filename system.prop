@@ -22,8 +22,5 @@ ro.vendor.mtk_emmc_support=1
 ro.hardware.vulkan=mali
 ro.hardware.egl=meow
 #
-#ro.product.board=te305_dk_dk050_6789_t0_ru
-#ro.board.platform=mt6789
-#ro.vendor.build.security_patch=2023-10-05
 ro.vendor.mtk_mvpu_security_support=0
 ####### generate by lopestom #######
