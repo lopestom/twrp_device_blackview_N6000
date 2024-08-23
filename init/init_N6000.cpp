@@ -29,6 +29,5 @@ void vendor_load_properties()
         property_override(string("ro.product.") + prop + string("device"), "N6000");
         property_override(string("ro.product.") + prop + string("model"), "N6000");
         property_override(string("ro.product.") + prop + string("manufacturer"), "Blackview");
-        property_override(string("ro.product.system.") + prop + string("device"), "k6789v1_64");
     }
 }
