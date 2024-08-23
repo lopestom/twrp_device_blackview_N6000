@@ -59,7 +59,7 @@ PRODUCT_PACKAGES += \
 # Userspace merge is enabled by default on devices launching with 13 and higher.
 PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.userspace.snapshots.enabled=true
 
-# Force USB FFS AIO compat - avoid usb crash
+# Force USB FFS AIO compat - HACK: Avoid usb crash
 PRODUCT_PRODUCT_PROPERTIES += \
 	persist.adb.nonblocking_ffs=0 \
 	ro.adb.nonblocking_ffs=0 \
