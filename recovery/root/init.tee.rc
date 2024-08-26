@@ -18,6 +18,11 @@ on post-fs
     chmod 0770 /mnt/vendor/protect_s
     chown system system /data/vendor/t6
     chmod 0771 /data/vendor/t6
+
+on post-fs-data
+    # Create /data/vendor/key_provisioning dir and get proper encryption policy installed
+    # Key Installation
+    mkdir /data/vendor/key_provisioning 0771 system system
     
     # We restorecon /mnt/vendor/ to set SEPolicy label.
     restorecon /mnt/vendor/persist
@@ -25,8 +30,3 @@ on post-fs
     restorecon_recursive /mnt/vendor/protect_f
     restorecon_recursive /mnt/vendor/protect_s
     restorecon /data/vendor/t6
-
-on post-fs-data
-    # Create /data/vendor/key_provisioning dir and get proper encryption policy installed
-    # Key Installation
-    mkdir /data/vendor/key_provisioning 0771 system system
