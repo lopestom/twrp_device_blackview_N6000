@@ -2,8 +2,8 @@ on init
     #create mountpoint for /persist & protect_f partition
     mkdir /mnt/vendor/persist 0771 system system
     mkdir /mnt/vendor/persist/t6 0771 system system
-    mkdir /mnt/vendor/protect_f 0771 system system
-    mkdir /mnt/vendor/protect_f/tee 0771 system system
+    mkdir /mnt/vendor/protect_f 0770 system system
+    mkdir /mnt/vendor/protect_f/tee 0770 system system
     mkdir /data/vendor 0771 system system
     mkdir /data/vendor/t6 0771 system system
 
@@ -12,12 +12,18 @@ on post-fs
     chmod 0771 /mnt/vendor/persist
     chown system system /mnt/vendor/persist/t6
     chmod 0771 /mnt/vendor/persist/t6
+    chown system system /mnt/vendor/protect_f
+    chmod 0770 /mnt/vendor/protect_f
+    chown system system /mnt/vendor/protect_s
+    chmod 0770 /mnt/vendor/protect_s
     chown system system /data/vendor/t6
+    chmod 0771 /data/vendor/t6
     
     # We restorecon /mnt/vendor/ to set SEPolicy label.
     restorecon /mnt/vendor/persist
     restorecon /mnt/vendor/persist/t6
-    restorecon /mnt/vendor/protect_f/tee
+    restorecon_recursive /mnt/vendor/protect_f
+    restorecon_recursive /mnt/vendor/protect_s
     restorecon /data/vendor/t6
 
 on post-fs-data
