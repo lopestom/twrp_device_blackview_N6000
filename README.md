@@ -30,3 +30,9 @@ export ALLOW_MISSING_DEPENDENCIES=true
 lunch twrp_N6000-eng
 mka vendorbootimage
 ```
+
+## Installing
+
+```bash
+fastboot flash vendor_boot vendor_boot.img
+```

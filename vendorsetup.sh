@@ -1,70 +1,41 @@
-#!/bin/bash
+#
+#	This file is part of the OrangeFox Recovery Project
+# 	Copyright (C) 2020-2026 The OrangeFox Recovery Project
+#
+	export LC_ALL="C.UTF-8"
+ 	export ALLOW_MISSING_DEPENDENCIES=true
 
-FDEVICE="N6000"
-export DEVICE="N6000"
-export OEM="Blackview"
+ 	#OFR build settings & info
+	export TARGET_DEVICE_ALT="N6000"
+    export FOX_VENDOR_BOOT_RECOVERY_FULL_REFLASH=1
+    export FOX_VENDOR_BOOT_RECOVERY=1
+    export FOX_DELETE_MAGISK_ADDON=1
+    export FOX_DELETE_AROMAFM=1
+    export FOX_ENABLE_APP_MANAGER=1
+    export FOX_SETTINGS_ROOT_DIRECTORY=/persist/OFRP
+    export FOX_ALLOW_EARLY_SETTINGS_LOAD=1
+    export FOX_RESET_SETTINGS=1
+    export FOX_ENABLE_DEBUGGING=1
 
+    #OFR binary files
+    export FOX_USE_BASH_SHELL=1
+    export FOX_USE_NANO_EDITOR=1
+    export FOX_USE_TAR_BINARY=1
+    export FOX_USE_SED_BINARY=1
+    export FOX_USE_XZ_UTILS=1
+    export FOX_ASH_IS_BASH=1
 
-export OF_DISABLE_OTA_MENU=1
-export FOX_AB_DEVICE=1
-export FOX_VIRTUAL_AB_DEVICE=1
-export OF_DEFAULT_KEYMASTER_VERSION=4.1
-export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
-export OF_MAINTAINER="lopestom"
-export FOX_VARIANT="A12+"
-export OF_FLASHLIGHT_ENABLE=0
+	#KSU
+	export FOX_ENABLE_KERNELSU_SUPPORT=1
+	export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1
+	export FOX_ENABLE_SUKISU_SUPPORT=1
 
-export FOX_USE_BASH_SHELL=1
-export FOX_USE_NANO_EDITOR=1
-export FOX_USE_TAR_BINARY=1
-export FOX_USE_SED_BINARY=1
-export FOX_USE_XZ_UTILS=1
-export FOX_ASH_IS_BASH=1
-export OF_ENABLE_LPTOOLS=1
-export OF_USE_LZ4_COMPRESSION=true
-export FOX_ENABLE_APP_MANAGER=1
-export OF_SUPPORT_VBMETA_AVB2_PATCHING=1
-
-export FOX_USE_DATA_RECOVERY_FOR_SETTINGS=1
-
-export OF_LOOP_DEVICE_ERRORS_TO_LOG=1
-
-# Magisk
-## Use the Latest Release of Magisk for the OrangeFox addon
-export OF_USE_LATEST_MAGISK=true
-
-export FOX_DELETE_MAGISK_ADDON=1
-export FOX_DELETE_AROMAFM=1
-
-# Magiskboot
-export OF_USE_MAGISKBOOT=1
-
-# Decryption
-export OF_DEFAULT_KEYMASTER_VERSION=4.1
-
-# Screen
-export OF_SCREEN_H=1200
-export OF_STATUS_H=95
-export OF_STATUS_INDENT_LEFT=48
-export OF_STATUS_INDENT_RIGHT=48
-export OF_ALLOW_DISABLE_NAVBAR=0
-export OF_CLOCK_POS=1
+    #OTA
+	export FOX_AB_DEVICE=1
+    export FOX_VIRTUAL_AB_DEVICE=1
 
 # Backup
 export OF_QUICK_BACKUP_LIST="/boot;/vendor_boot;/data;/nvram;/protect_f;/protect_s;/persist;"
 
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-export CCACHE_MAXSIZE="5G"
-export CCACHE_DIR="~/ccache"
-
-if [ ! -d ${CCACHE_DIR} ];
-then
-  echo "CCACHE Directory/Partition is not mounted at \"${CCACHE_DIR}\""
-  echo "Please edit the CCACHE_DIR build variable or mount the directory."
-fi
-
-export LC_ALL="C"
-
-# Clone to fix build on minimal manifest
-git clone https://android.googlesource.com/platform/external/gflags/ -b android-12.1.0_r4 external/gflags
+# Decryption
+export OF_DEFAULT_KEYMASTER_VERSION=4.1
